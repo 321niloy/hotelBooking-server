@@ -1,14 +1,14 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import express, { NextFunction, Request, Response } from 'express';
+// /* eslint-disable @typescript-eslint/no-explicit-any */
+// import express, { NextFunction, Request, Response } from 'express';
 
 
-const router = express.Router();
+// const router = express.Router();
 
 
 
-router.get(
-  '/me'
+// router.get(
+//   '/me'
  
-);
+// );
 
-export const UserRoutes = router;
+// export const UserRoutes = router;
