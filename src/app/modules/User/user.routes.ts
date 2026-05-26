@@ -2,10 +2,11 @@
 import express from 'express';
 
 
-import { USER_ROLE } from './user.constant';
+// import { USER_ROLE } from './user.constant';
 
 import { UserValidation } from './user.validation';
 import validateRequest from '../../middlewares/validateRequest';
+import { UserControllers } from './user.controller';
 
 const router = express.Router();
 
@@ -13,35 +14,31 @@ const router = express.Router();
 router.post(
   '/create-user',
   validateRequest(UserValidation.createUserValidationSchema),
+  UserControllers.createUser,
  
 );
 
-// Get a single user by ID
+// // Get a single user by ID
 router.get(
   '/:id',
+  UserControllers.getSingelUser
 );
 
-// Update user details by ID
+// // Update user details by ID
 router.patch(
   '/:id',
-  validateRequest(UserValidation.updateUserValidationSchema),
+  UserControllers.updateUser
 );
 
 // Delete a user (Soft delete) by ID
 router.delete(
   '/:id',
+  UserControllers.deleteUser,
 );
 
-// Change user status (active/blocked) by ID
-router.post(
-  '/change-status/:id',
-  validateRequest(UserValidation.changeStatusValidationSchema),
-);
+router.get( "/" , UserControllers.getAllUsers);
 
-// Get currently logged-in user profile
-router.get(
-  '/me',
-);
+
 
 export const UserRoutes = router;
 
