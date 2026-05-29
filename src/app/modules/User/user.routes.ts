@@ -27,6 +27,7 @@ router.get(
 // // Update user details by ID
 router.patch(
   '/:id',
+  validateRequest(UserValidation.updateUserValidationSchema),
   UserControllers.updateUser
 );
 
